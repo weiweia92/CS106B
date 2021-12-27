@@ -7,11 +7,11 @@
 using namespace std;
 
 // What happens to `word`?
-//void pollOne() {
-//    string word = "hello";
-//    word[1] = 'a';
-//    cout << word << endl;
-//}
+void pollOne() {
+    string word = "hello";
+    word[1] = 'a';
+    cout << word << endl;
+}
 
 // Which of A, B, and/or C is valid?
 //void pollTwo() {
@@ -69,7 +69,7 @@ using namespace std;
 void loopingOverStrFor(string word) {
     /* TODO: FILL IN */
     for (int letterIndex = 0; letterIndex < word.length(); letterIndex++) {
-        cout << word[letterIndex] << endl;
+       cout << word[letterIndex] << endl;
     }
 }
 
@@ -86,18 +86,18 @@ void alphabetLoop() {
     }
 }
 
-void weirdCstringExamples() {
-    string hi42 = "hi" + 42;          // C-string + int
-    cout << hi42 << endl;             // garbage
+//void weirdCstringExamples() {
+//    string hi42 = "hi" + 42;          // C-string + int
+//    cout << hi42 << endl;             // garbage
 
 //    int castN = (int)"42";            // Qt error; attempts to cast memory address of C-string
-    int n = stringToInteger("42");    // Works with Stanford string library function!
-    cout << n << endl;
+//    int n = stringToInteger("42");    // Works with Stanford string library function!
+//    cout << n << endl;
 
 
-    string okayHiQuestion = "" + string("hi") + '?'; // Auto-converts due to empty C++ string!
-    cout << okayHiQuestion << endl;
-}
+//    string okayHiQuestion = "" + string("hi") + '?'; // Auto-converts due to empty C++ string!
+//    cout << okayHiQuestion << endl;
+//}
 
 int main() {
 
@@ -106,7 +106,7 @@ int main() {
         return 0;
     }
 
-//    pollOne();
+    pollOne();
 //    pollTwo();
 //    pollThree();
 //    pollFour();
@@ -114,13 +114,8 @@ int main() {
 //    pollSix();
 
     loopingOverStrFor("Kylie Jue");
-    cout << endl;
     loopingOverStrForEach("Nick Bowman");
-    cout << endl;
-
     alphabetLoop();
-    cout << endl;
-
     weirdCstringExamples();
     return 0;
 }
