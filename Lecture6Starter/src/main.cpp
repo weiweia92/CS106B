@@ -46,12 +46,12 @@ void uniqueWordProgram() {
         generateUniqueWords(uniqueWords, fileLines);
         cout << "That file contained " << uniqueWords.size() << " unique words. Wow!" << endl << endl;
 
-//        Map<string, int> wordCounts;
-//        generateWordCounts(wordCounts, fileLines);
-//        cout << "Here are the word counts for the first 10 words (alphabetically) in the file: " << endl;
-//        for (string word: wordCounts.keys().subList(0, 10)) {
-//            cout << word << ": " << wordCounts[word] << endl << endl;
-//        }
+        Map<string, int> wordCounts;
+        generateWordCounts(wordCounts, fileLines);
+        cout << "Here are the word counts for the first 10 words (alphabetically) in the file: " << endl;
+        for (string word: wordCounts.keys().subList(0, 10)) {
+            cout << word << ": " << wordCounts[word] << endl << endl;
+        }
     }
 }
 
@@ -75,5 +75,13 @@ void generateWordCounts(Map<string, int>& wordCounts, const Vector<string>& line
      * lines and produces a map containing the counts of all the unique words
      * in the file!
      */
+    for (string line : lines) {
+        Vector<string> words = stringSplit(line, " ");
+        for (string word : words) {
+            if (word != "") {
+                wordCounts[word] += 1;
+            }            
+        }
+    }
 }
 
