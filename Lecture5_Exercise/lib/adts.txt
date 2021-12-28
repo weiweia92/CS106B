@@ -1,0 +1,13 @@
+So far, we've learned about four ordered ADTs:
+- Vectors
+- Grids
+- Queues
+- Stacks
+
+For each of the following use cases, discuss which ADT you think would be best suited for the job and why:
+- The undo button in a text editor
+- Jobs submitted to a printer that can also be cancelled
+- LaIR requests
+- Your browsing history
+- Google spreadsheets
+- Call centers("your call will be handled by the next available agent")

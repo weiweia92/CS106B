@@ -61,6 +61,12 @@ void generateUniqueWords(Set<string>& uniqueWords, const Vector<string>& lines) 
      * lines and produces a set containing all the unique words in the
      * file!
      */
+     for (string line : lines) {
+         Vector<string> words = stringSplit(line, " ");
+         for (string word : words) {
+             uniqueWords.add(word);
+         }
+     }
 }
 
 void generateWordCounts(Map<string, int>& wordCounts, const Vector<string>& lines) {

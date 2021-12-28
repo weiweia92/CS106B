@@ -1,6 +1,7 @@
 #include <iostream>
 #include "console.h"
 #include "vector.h"
+#include "grid.h"
 using namespace std;
 
 /* Fun fact: Saki is the name of Kylie's dog! */
