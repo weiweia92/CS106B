@@ -1,0 +1,8 @@
+You've been given a piece of mystery code that deals with vectors and pass-by-reference. Your task is to trace
+through the code and identify the state of the data structures at different points on the code.
+
+1. Trace through the execution of the main function in main.cpp but do not run the code.
+2. Fill in the provided comments with the state of the data structures at the indicated points in the program.
+3.(optional) Once you have completed filling in all the comments and feel confident in your answers, try adding
+cout statements to the code to print out the state of the data structures at intermediate points in the program
+to check your answers.

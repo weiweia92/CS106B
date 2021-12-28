@@ -34,18 +34,21 @@ int main() {
     }
     cout << "Done squaring numbers!" << endl;
 
-    vectorGridExamples();
+//    vectorGridExamples();
 
     Vector<int> nums = {1, -4, 18, -11};
-    eliminateNegativity(nums);
+    int numEliminated = 0;
+    eliminateNegativity(nums, numEliminated);
     cout << nums << endl;
+    cout << numEliminated << endl;
 
     return 0;
 }
 
-void eliminateNegativity(Vector<int>& v){
+void eliminateNegativity(Vector<int>& v, int& numEliminated){
     for (int i = 0; i < v.size(); i++){
         if (v[i] < 0){
+            numEliminated++;
             v[i] = -1 * v[i];
         }
     }
