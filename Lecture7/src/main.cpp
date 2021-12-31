@@ -84,5 +84,43 @@ Set<string> generateNeighboringWords(string currentWord, Set<string>& dictionary
 
 Stack<string> findWordLadder(string startingWord, string destinationWord, Set<string>& dictionary){
     /* TODO: Implement breadth-first search to find a word ladder. */
+
+    // Create an empty queue and an empty set of visited locations
+    Queue<Stack<string>> allLadders;
+    Set<string> visitedWords;
+
+    // Create an initial word ladder containing the starting word and add it to the queue
+    Stack<string> initialLadder = {startingWord};
+    allLadders.enqueue(initialLadder);
+
+    // While the queue is not empty
+    while (!allLadders.isEmpty()) {
+        // Remove the next partial ladder from the queue
+        Stack<string> currentLadder = allLadders.dequeue();
+        // Set the current search word to be the word at the top of the ladder
+        string currentWord = currentLadder.peek();
+        // If the current word is the destination, then return the current ladder
+        if (currentWord == destination) {
+            return currentLadder;
+        }
+        // Generate all "neighboring" words that are valid English words and one letter away from the currentWord
+        Set<string> neighbors = generateNeighboringWords(currentWord, dictionary);
+        // Loop over all neighbor words
+        for (string neighbor : neighbors) {
+            /* If the neighbor hasn't yet been visited
+            Create a copy of the current ladder
+            Add the neighbor to the top of the new ladder and mark it visited
+            Add the new ladder to the back of the queue of partial ladders
+            */
+            if (!visitedWords.contains(neighbor)) {
+                Stack<string> newLadder = currentLadder;
+                newLadder.push(neighbor);
+                visitedWords.add(neighbor);
+                allLadders.enqueue(newLadder);
+            }
+
+        }
+
+    }
     return {};
 }
