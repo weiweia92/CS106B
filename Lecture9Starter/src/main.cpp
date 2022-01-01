@@ -54,6 +54,11 @@ int factorialIterative(int n) {
  */
 string reverse(string s) {
     /* TODO: Fill in the remainder of this function! */
+    if (s == "") {
+        return "";
+    }
+    //return reverse(s.substr(1)) + s[0];
+    return s[s.length() - 1] + reverse(s.substr(0, s.length() - 1));
 }
 
 string reverseIterative(string s) {
