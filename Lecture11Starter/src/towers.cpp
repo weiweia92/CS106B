@@ -35,6 +35,13 @@ static const int N = 5;
  */
 void findSolution(int n, char source, char dest, char aux) {
     /* TODO: Implement the recursive solution to the Towers of Hanoi! */
+    if (n == 1) {
+        moveSingleDisk(source, dest);
+    } else {
+        findSolution(n - 1, source, aux, dest);
+        moveSingleDisk(source, dest);
+        findSolution(n - 1, aux, dest, source);
+    }
 }
 
 /* Iterative algorithm:

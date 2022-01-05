@@ -10,7 +10,7 @@ int main() {
         return 0;
     }
 
-    runHanoiDemo();
-//    runSequencesDemo();
+    //runHanoiDemo();
+    runSequencesDemo();
     return 0;
 }

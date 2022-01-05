@@ -22,7 +22,8 @@ using namespace std;
  * "left" and "right." The fractal will have "level" numbers of levels.
  */
 void drawCantor(GWindow & w, int order, GPoint left, GPoint right) {
-    /* Base Case: An order 0 Cantor Set involves drawing nothing. */
+    /* TODO: Implement the Cantor Set to drawing function. */
+    /* Base Case: An order 0 means draw nothing. */
     if (order == 0) {
         return;
     }
@@ -35,11 +36,11 @@ void drawCantor(GWindow & w, int order, GPoint left, GPoint right) {
     /* Step 1: Draw the main line. */
     drawThickLine(w, left, right);
 
-    /* Step 2: Draw the smaller Cantor Set on the left third of the screen. */
+    /* Step 2: Draw a order n-1 cantor set on the left third. */
     GPoint oneThird = pointBetween(left, right, 1.0 / 3);
     drawCantor(w, order - 1, getLoweredPoint(left), getLoweredPoint(oneThird));
 
-    /* Step 3: Draw the smaller Cantor Set on the right third of the screen. */
+    /* Step 3: Draw the smaller Cantor Set on the right third. */
     GPoint twoThirds = pointBetween(left, right, 2.0 / 3);
     drawCantor(w, order - 1, getLoweredPoint(twoThirds), getLoweredPoint(right));
 }
