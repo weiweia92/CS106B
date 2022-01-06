@@ -6,20 +6,18 @@
 using namespace std;
 
 bool isShrinkable(Lexicon& lex, string word) {
-    /* Base Case 1: Things must be words to be shrinkable words. */
-    if (!lex.contains(word)) {
-        return false;
-    }
-    /* Base Case 2: If you're a single letter, then yes, you're shrinkable. */
-    if (word.length() == 1) {
+    /* TODO: Fill in isShrinkable function! */
+    /* Base Case: Things must be words to be shrinkable words. */
+    if (word.length() == 1 && lex.contains(word)) {
         return true;
     }
-
     /* Recursive Case: Try removing each letter. */
     for (int i = 0; i < word.length(); i++) {
-        string shrunken = word.substr(0, i) + word.substr(i + 1);
-        if (isShrinkable(lex, shrunken)) {
-            return true;
+        string reduced = word.substr(0, i) + word.substr(i + 1);
+        if (lex.contains(reduced)) {
+            if (isShrinkable(lex, reduced)) {
+                return true;
+            }
         }
     }
 
