@@ -14,57 +14,57 @@ void pollOne() {
 }
 
 // Which of A, B, and/or C is valid?
-//void pollTwo() {
-//    char letter = '!';
-//    string word = "hi";
-//    string letterStr = "!";
+void pollTwo() {
+    char letter = '!';
+    string word = "hi";
+    string letterStr = "!";
 
-//    // A
-//    word += letter;
-//    // B
-//    word = word + letter;
-//    // C
-//    word = word + letterStr;
+    // A
+    word += letter;
+    // B
+    word = word + letter;
+    // C
+    word = word + letterStr;
 
-//    cout << word << endl;
-//}
+    cout << word << endl;
+}
 
 // Will abc < bc, abc > bc, or C++ won't be able to evaluate the
 // expression?
-//void pollThree() {
-//    string abc = "abc";
-//    string bc = "ab";
-//    if (abc < bc) {
-//        cout << "abc < bc" << endl;
-//    } else if (abc > bc) {
-//        cout << "abc > bc" << endl;
-//    }
-//}
+void pollThree() {
+    string abc = "abc";
+    string bc = "ab";
+    if (abc < bc) {
+        cout << "abc < bc" << endl;
+    } else if (abc > bc) {
+        cout << "abc > bc" << endl;
+    }
+}
 
 // Which statement will be true for the C++ strings `Abc` and `abc`?
-//void pollFour() {
-//    string abcUpper = "Abc";
-//    string abcLower = "abc";
-//    if (abcUpper < abcLower) {
-//        cout << "Abc < abc" << endl;
-//    } else if (abcUpper > abcLower) {
-//        cout << "Abc > abc" << endl;
-//    } else {
-//        cout << "Abc == abc" << endl;
-//    }
-//}
+void pollFour() {
+    string abcUpper = "Abc";
+    string abcLower = "abc";
+    if (abcUpper < abcLower) {
+        cout << "Abc < abc" << endl;
+    } else if (abcUpper > abcLower) {
+        cout << "Abc > abc" << endl;
+    } else {
+        cout << "Abc == abc" << endl;
+    }
+}
 
 // What happens to hiThere?
-//void pollFive() {
-//    string hiThere = "hi" + "there";
-//    cout << hiThere << endl;
-//}
+void pollFive() {
+    string hiThere = "hi" + "there";
+    cout << hiThere << endl;
+}
 
 // What happens to hiThere?
-//void pollSix() {
-//    string hiThere = "hi" + '?';
-//    cout << hiThere << endl;
-//}
+void pollSix() {
+    string hiThere = "hi" + '?';
+    cout << hiThere << endl;
+}
 
 void loopingOverStrFor(string word) {
     /* TODO: FILL IN */
@@ -86,18 +86,18 @@ void alphabetLoop() {
     }
 }
 
-//void weirdCstringExamples() {
-//    string hi42 = "hi" + 42;          // C-string + int
-//    cout << hi42 << endl;             // garbage
+void weirdCstringExamples() {
+    string hi42 = "hi" + 42;          // C-string + int
+    cout << hi42 << endl;             // garbage
 
 //    int castN = (int)"42";            // Qt error; attempts to cast memory address of C-string
-//    int n = stringToInteger("42");    // Works with Stanford string library function!
-//    cout << n << endl;
+    int n = stringToInteger("42");    // Works with Stanford string library function!
+    cout << n << endl;
 
 
-//    string okayHiQuestion = "" + string("hi") + '?'; // Auto-converts due to empty C++ string!
-//    cout << okayHiQuestion << endl;
-//}
+    string okayHiQuestion = "" + string("hi") + '?'; // Auto-converts due to empty C++ string!
+    cout << okayHiQuestion << endl;
+}
 
 int main() {
 
@@ -107,11 +107,11 @@ int main() {
     }
 
     pollOne();
-//    pollTwo();
-//    pollThree();
-//    pollFour();
-//    pollFive();
-//    pollSix();
+    pollTwo();
+    pollThree();
+    pollFour();
+    pollFive();
+    pollSix();
 
     loopingOverStrFor("Kylie Jue");
     loopingOverStrForEach("Nick Bowman");

@@ -29,6 +29,7 @@ void printTenTimes(char c) {
     cout << endl;
 }
 
+// what different from 'doubleValue' and 'doubleValueWithRef'?
 int doubleValue(int x) {
     x *= 2;
     return x;
