@@ -35,9 +35,10 @@ Set<GridLocation> generateValidMoves(Grid<bool>& maze, GridLocation cur) {
 /* Helper function for finding the solution to a maze using depth-first search.
  */
 bool solveMazeHelper(Grid<bool>& maze, Stack<GridLocation>& path, GridLocation cur) {
+    /* TODO: Fill me in! */
     MazeGraphics::highlightPath(path, "blue");
     GridLocation exitLoc = {maze.numRows() - 1, maze.numCols() - 1};
-
+    /* Base Case: */
     if (cur == exitLoc) {
         MazeGraphics::highlightPath(path, "green");
         return true;
@@ -45,11 +46,12 @@ bool solveMazeHelper(Grid<bool>& maze, Stack<GridLocation>& path, GridLocation c
 
     Set<GridLocation> validNeighbors = generateValidMoves(maze, cur);
     for (GridLocation loc: validNeighbors) {
-        path.push(loc);
-        maze[loc] = false;
+        path.push(loc); 
+        maze[loc] = false; /* Don't visit. */
         if (solveMazeHelper(maze, path, loc)) {
             return true;
         }
+        // Unchoose
         path.pop();
         maze[loc] = true;
     }
