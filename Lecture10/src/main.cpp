@@ -23,6 +23,7 @@ int main() {
  * This function is implemented recursively.
  */
 bool isPalindrome(string s) {
+    /* TODO: Complete the implementation of this function. */
     if (s.length() < 2){
         return true;
     } else {
