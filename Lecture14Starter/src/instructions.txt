@@ -1,0 +1,22 @@
+Breakout Room instructions:
+
+Suppose you have the following puzzle you need to solve. You're going on a journey, and 
+you need to select items to put in your backpack. Each item has a certain value that 
+increases your probability of surivival. For example, an item with value 5 is more
+important for your survival than an item of value 3, and so on. Values are expressed as 
+positive integers.
+
+Each item also has a particular weight in pounds. Your backpack can only hold 5 pounds
+of survival supplies, and you want to maximize your likelihood of survival, which group
+of items will maximize your chances of survival without breaking your backpack.
+
+
+(Format:"Item: {value, weight}")
+- Rope: {3, 2}
+- Axe: {4, 3}
+- Tent: {5, 4}
+- Canned food: {6, 5}
+
+What strategies might you try for deciding how to include items? What happens if you 
+always choose to include the item with the highest value that will still fit in your
+backpack?

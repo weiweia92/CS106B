@@ -17,7 +17,34 @@ int fillBackpackHelper(Vector<BackpackItem>& items, int weight, int curValue, in
 
 int fillBackpackHelper(Vector<BackpackItem>& items, int capacityRemaining, int curValue, int index){
     /* TODO: Fill me in! */
-    return 0;
+    /* Base Case: If we are completely out of capacity in the backpack, then we can't generate
+     * any more value by adding things in.
+     */
+    if (capacityRemaining < 0) {
+        return 0;
+    }
+    /* Base Case: If we have made up our minds about whether to include/exclude all the original
+     * items, then we return the backpack value that we've built up so far.
+     */
+    if (index == items.size()) {
+        return curValue;
+    }
+    /* Recursive Case: Choose the item at the current index and generate the best backpack value
+     * when including that element and when excluding that element. The final best value that 
+     * we return is the larger of those two values.
+     */
+    BackpackItem curItem = items[index];
+    int maxValueWithout = fillBackpackHelper(items,
+                                             capacityRemaining,
+                                             curValue,
+                                             index + 1);
+    int maxValueWith = fillBackpackHelper(items,
+                                          capacityRemaining - curItem.weight,
+                                          curValue + curItem.survivalValue,
+                                          index + 1);
+    /* Unchoose: Not needed! */
+
+    return max(maxValueWith, maxValueWithOut);
 }
 
 int fillBackpack(Vector<BackpackItem>& items, int targetWeight){

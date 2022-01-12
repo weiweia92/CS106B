@@ -52,9 +52,6 @@ void findPerfects(long stop) {
     cout << endl << "Done searching up to " << stop << endl;
 }
 
-/* TODO: Replace this comment with a descriptive function
- * header comment.
- */
 long smarterSum(long n) {
     /* TODO: Fill in this function. */
     long total = 0;
@@ -73,17 +70,11 @@ long smarterSum(long n) {
     return total;
 }
 
-/* TODO: Replace this comment with a descriptive function
- * header comment.
- */
 bool isPerfectSmarter(long n) {
     /* TODO: Fill in this function. */
     return (n != 0) && (n == smarterSum(n));
 }
 
-/* TODO: Replace this comment with a descriptive function
- * header comment.
- */
 void findPerfectsSmarter(long stop) {
      /* TODO: Fill in this function. */
     for (long num = 1; num < stop; num++) {
@@ -95,9 +86,7 @@ void findPerfectsSmarter(long stop) {
     cout << endl << "Done searching up to " << stop << endl;
 }
 
-/* TODO: Replace this comment with a descriptive function
- * header comment.
- */
+// If 2^k-1 is prime, then 2^(k-1)*(2^k-1) is a perfect number.
 bool isPrime(long n)
 {
     if(n <= 0)
