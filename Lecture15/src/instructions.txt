@@ -1,0 +1,22 @@
+Breakout Room instructions:
+
+How would you design a class for the following use cases:
+- A bank account that enables transferring funds between accounts
+- A Spotify (or other music platform) playlist
+
+For each of the above use cases, make sure to consider:
+1. Member variables: What subvariables make up this new variable type?
+2. Member functions: What functions can you call on a variable of this type?
+3. Constructor: What happens when you make a new instance of this type?
+
+
+/* BANK ACCOUNT */
+1. Member variables: int balance; string accountHolderName
+2. Member functions: transfer(BankAccount sender, BankAccount receiver); deposit(int amount); withdraq(int amount)
+3. Constructor: Initialize balance; define the account holder's accountHolderName
+
+/* SPOTIFY PLAYLIST */
+1. Member variables: Vector<string> songs; double totalTime; string nameOfPlaylist
+2. Member functions: moveSong(string song, int location) --> moving song to new location; addSong(string song) --> add the song to the end of the playlist
+                     removeSong(string song); playSong() --> iterates over your playlist; shuffle() --> randomly play songs from your playlist
+3. Constructor: Creating the empty songs vector; define the playlist's name (default: Untitled X); set totalTime = 0;
