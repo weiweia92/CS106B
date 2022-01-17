@@ -11,6 +11,9 @@ const int INITIAL_CAPACITY = 8;
 // constructor
 OurVector::OurVector(){
     /* TODO: Fill in this function! */
+    allocatedCapacity = INITIAL_CAPACITY;
+    numItems = 0;
+    elements = new int[allocatedCapacity];
 }
 
 // destructor

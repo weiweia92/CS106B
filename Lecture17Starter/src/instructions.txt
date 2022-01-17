@@ -1,0 +1,22 @@
+Breakout Room 1 Instructions:
+
+It's time to make important decisions about how to design the Vectors class! In 
+particular, you will focus on answering the second important question of class
+design, which is:
+    * What subvariables make up the Vector type?
+
+Discuss with your group and come up with suggestions (including both names and types)
+for the member variables that the OurVector class should have.
+
+/* BRANSTORM AS A GROUP HERE. */
+
+
+
+
+-----------------
+Breakout Room 2 Instructions:
+
+Now, you will trace through the remove() and insert() operations on a sample Vector
+and brainstorm what algorithmic components will be necessary to implement these methods.
+
+Assume that the vector currently has the following internal contents

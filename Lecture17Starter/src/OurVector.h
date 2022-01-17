@@ -37,4 +37,7 @@ public:
 
 private:
     /* TODO: FIll in this section! */
+    int* elements;
+    int allocatedCapacity;
+    int numItems;
 };
