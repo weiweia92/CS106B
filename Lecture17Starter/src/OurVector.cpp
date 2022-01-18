@@ -14,50 +14,96 @@ OurVector::OurVector(){
     allocatedCapacity = INITIAL_CAPACITY;
     numItems = 0;
     elements = new int[allocatedCapacity];
+    cout << "Constructor!" << endl;
 }
 
 // destructor
 OurVector::~OurVector(){
     /* TODO: Fill in this function! */
+    delete[] elements;
+    cout << "Destructor!" << endl;
 }
 
 // append value to the end of our array
 void OurVector::add(int value){
     /* TODO: Fill in this function! */
+    if (numItems == allocatedCapacity) {
+        expand();
+    }
+    int nextEmptySlotIndex = numItems;
+    elements[nextEmptySlotIndex] = value;
+    numItems++;
 }
 
 // insert value at index
 void OurVector::insert(int index, int value){
     /* TODO: Fill in this function! */
+    if (index < 0 || index > numItems) {
+        error("Invalid vector index! Should be in range [0 - "
+             + integerToString(numItems - 1) + "]");
+    }
+    /* If we are out of space, we must first expand the
+     * array's capacity. */
+    if (numItems == allocatedCapacity) {
+        expand();
+    }
+    for (int i = numItems; i > index; i--) {
+        elements[i] = elements[i - 1];
+    }
+    elements[index] = value;
+    numItems++;
 }
 
 // return the element at index
 int OurVector::get(int index){
     /* TODO: Fill in this function! */
-    return 0;
+    if (index < 0 || index >= numItems) {
+        error("Out of bounds!")
+    }
+    return elements[index];
 }
 
 // remove value from index
 void OurVector::remove(int index){
     /* TODO: Fill in this function! */
+    if (index < 0 || index >= numItems) {
+        error("Out of bounds!")
+    }
+    for (int i = index; i < numItems - 1; i++) {
+        elements[i] = elements[i+1];
+    }
+    numItems--;
 }
 
 // returns the number of elements
 int OurVector::size(){
     /* TODO: Fill in this function! */
-    return 0;
+    return numItems;
 }
 
 // returns true if there aren't any elements
 bool OurVector::isEmpty(){
-    return false;
+    return numItems == 0;
 }
 
 void OurVector::printDebugInfo(){
     /* TODO: Fill in this function! */
 }
 
-
+void OurVector::expand() {
+    // 1. ask for new space for a new array
+    int* newElements = new int[2 * allocatedCapacity];
+    // 2. copy the values over
+    for (int i = 0; i < numItems; i++) {
+        newElements[i] = elements[i];
+    }
+    // 3. delete old array
+    delete[] elements;
+    // 4. point elements to new array
+    elements = newElements;
+    // 5. update capacity
+    allocatedCapacity *= 2;
+}
 PROVIDED_TEST("Construct vector and see constructor/destructor be called."){
     OurVector vec;
 }

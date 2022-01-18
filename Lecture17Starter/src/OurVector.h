@@ -37,7 +37,9 @@ public:
 
 private:
     /* TODO: FIll in this section! */
-    int* elements;
-    int allocatedCapacity;
-    int numItems;
+    int* elements;          // The actural array of elements.
+    int allocatedCapacity;  // How much space is allocated in our vector.
+    int numItems;           // How many elements are actually in our vector.
+
+    void expand();
 };
