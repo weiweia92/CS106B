@@ -11,10 +11,24 @@ IntStack::~IntStack() {
 
 void IntStack::push(int value) {
     /* FILL ME IN */
+    Node* temp = new Node;
+    temp->data = value;
+    temp->next = top;
+    top = temp;
 }
 
 int IntStack::pop() {
-    return 0;
+    /* FILL ME IN */
+    if (isEmpty()) {
+        error("Error trying to pop from an empty stack")
+    }
+    int topValue = top->data;
+
+    Node* temp = top;
+    top = top->next;
+
+    delete temp;
+    return topValue;
 }
 
 bool IntStack::isEmpty(){

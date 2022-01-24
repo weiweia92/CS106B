@@ -8,7 +8,7 @@ struct Node {
 class IntStack {
 public:
     IntStack(); // constructor
-    ~IntStack();
+    ~IntStack(); // destructor
     
     void push(int value);
     int pop();
