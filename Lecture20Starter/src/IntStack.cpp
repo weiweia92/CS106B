@@ -1,5 +1,6 @@
 #include "IntStack.h"
 #include "testing/SimpleTest.h"
+#include "error.h"
 
 IntStack::IntStack() {
     top = nullptr;
@@ -7,6 +8,14 @@ IntStack::IntStack() {
 
 IntStack::~IntStack() {
     /* FILL ME IN */
+    while (top != nullptr) {
+        //BAD
+//        delete top;
+//        top = top->next;
+        Node* temp = top;
+        top = top->next;
+        delete temp;
+    }
 }
 
 void IntStack::push(int value) {

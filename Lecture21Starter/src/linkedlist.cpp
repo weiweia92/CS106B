@@ -13,17 +13,27 @@ using namespace std;
 /* Given a linked list, returns the length of that list. */
 int lengthOf(Node* list) {
     /* TODO: Implement this function! */
-    return 0;
+    int numNodes = 0;
+    while (list != nullptr) {
+        numNodes++;
+        list = list->next;
+    }
+    return numNodes;
 }
 
 /* Prints the contents of a linked list, in order. */
 void printList(Node* list) {
     /* TODO: Implement this function! */
+    while (list != nullptr) {
+        cout << list->data << endl;
+        list = list->next;
+    }
 }
 
 /* Frees all the memory used by a linked list. */
 void freeList(Node* list) {
     /* TODO: Implement this function! */
+
 }
 
 /* Reads a linked list from the user one element at a time, stopping when
