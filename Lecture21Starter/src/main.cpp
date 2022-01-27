@@ -20,9 +20,13 @@ int main() {
 
     Node* head = nullptr;
 
-    appendTo(head, "Trip");
-    appendTo(head, "Kylie");
-    appendTo(head, "Nick");
+    prependTo(head, "Trip");
+    prependTo(head, "Kylie");
+    prependTo(head, "Nick");
+
+//    appendTo(head, "Trip");
+//    appendTo(head, "Kylie");
+//    appendTo(head, "Nick");
 
     printList(head);
     freeList(head);

@@ -130,10 +130,10 @@ void appendTo(Node*& list, string data) {
  */
 Node* createListWithAppend(Vector<string> values) {
     // From section 6 utility.cpp
-    if (values.isEmpty()) return nullptr;
-    Node* head = new Node;
-    head->data = values[0];
-    head->next  = nullptr;
+    if (values.isEmpty()) {
+        return nullptr;
+    }
+    Node* head = new Node(values[0], nullptr);
 
     for (int i = 1; i < values.size(); i++) {
         appendTo(head, values[i]);
@@ -148,16 +148,61 @@ Node* createListWithAppend(Vector<string> values) {
  */
 Node* createListWithTailPtr(Vector<string> values) {
     /* TODO: Implement this function! */
-    return nullptr;
+    if (values.isEmpty()) {
+        return nullptr;
+    }
+    Node* head = new Node(values[0], nullptr);
+
+    Node* cur = head;
+    for (int i; i < values.size(); i++) {
+        Node* newNode = new Node(values[i], nullptr);
+        cur->next = newNode;
+        cur = newNode;
+    }
+    return head;
 }
 
 /* Adds data to a linked list in alphabetical order. Assumes existing list is already
  * sorted alphabetically. */
 void alphabeticalAdd(Node*& list, string data) {
     /* TODO: Implement this function! */
+    Node* newNode = new Node(data, nullptr);
+    
+    //Finding where we need to put our new Node
+    Node* cur = list;
+    Node* prev = nullptr;
+    while (cur != nullptr && cur->data < data) {
+        prev = cur;
+        cur = cur->next;
+    }
+      
+    //Rewiring
+    if (prev != nullptr) {
+        prev->next = newNode;
+        newNode->next = cur;
+    } else {// Adding to the front of our linked list
+        newNode->next = list;
+        list = newNode;
+    }
+
 }
 
 /* Removes all nodes matching dataToRemove from the passed in list (if the data exists). */
 void remove(Node*& list, string dataToRemove) {
     /* TODO: Implement this function! */
+    Node* cur = list;
+    Node* prev = nullptr;
+    while (cur != nullptr) {
+        if (cur->data == dataToRemove) {
+            //Rewire
+            if (prev != nullptr) {
+                prev->next = cur->next;
+            } else {
+                list = cur->next;
+            }
+            delete cur;
+        }
+        prev = cur;
+        cur = cur->next;
+    }
 }
