@@ -81,16 +81,23 @@ void insertionSort(Vector<int>& v) {
  */
 void mergeSort(Vector<int>& vec) {
     /* A list with 0 or 1 elements is already sorted by definition. */
-
+    if (vec.size() <= 1) {
+        return;
+    }
     /* Split the list into two, equally sized halves */
-
+    Vector<int> left, right;
+    split(vec, left, right);
     /* Recursively sort the two halves. */
-
+    mergeSort(left);
+    mergeSort(right);
     /*
      * Empty out the original vector and re-fill it with merged result
      * of the two sorted halves.
      */
+    vec = {};
+    merge(vec, left, right);
 }
+
 
 /*
  * Given a sequence of n elements (vec), splits the sequence into two sublists
@@ -99,6 +106,9 @@ void mergeSort(Vector<int>& vec) {
  */
 void split(Vector<int>& vec, Vector<int>& left, Vector<int>& right){
     /* TODO: Implement this function */
+    int half = vec.size() / 2;
+    left = vec.subList(0, half);
+    right = vec.subList(half);
 }
 
 /*
@@ -142,23 +152,40 @@ void merge(Vector<int>& vec, Vector<int>& v1, Vector<int>& v2) {
 
 void quickSort(Vector<int>& vec){
     /* A list with 0 or 1 elements is already sorted by definition. */
-
+    if (vec.size() <= 1) {
+        return;
+    }
     /* Pick the pviot and partition the list into three components.
      * 1) elements less than the pivot
      * 2) elements equal to the pivot
      * 3) elements greater than the pivot
     */
+   int pivot = vec[0];
+   Vector<int> less, equal, greater;
+   partition(vec, less, equal, greater, pivot);
 
     /* Recursively sort the two unsorted components. */
-
+    quickSort(less);
+    quickSort(greater);
     /*
      * Empty out the original vector and re-fill it with merged result
      * of the two sorted halves.
      */
+    vec = {};
+    concatenate(vec, less, equal, greater);
 }
 
 void partition(Vector<int>& vec, Vector<int>& less, Vector<int>& equal, Vector<int>& greater, int pivot) {
     /* TODO: Implement this function. */
+    for (int val: vec) {
+        if (val < pivot) {
+            less.add(val);
+        } else if (val == pivot) {
+            equal.add(val);
+        } else {
+            greater.add(val);
+        }
+    }
 }
 
 /* Assumes vec is empty when passed int othis function */
@@ -168,6 +195,7 @@ void concatenate(Vector<int>& vec, Vector<int>& less, Vector<int>& equal, Vector
      * followed by the sorted list of elements greater than pivot.
      */
     /* TODO: Implement this function */
+    vec = less + equal + greater;
 }
 
 //PROVIDED_TEST("Simple test to test correctness of overall selection sort algorithm"){
