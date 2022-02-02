@@ -1,0 +1,50 @@
+Yesterday, we introduced the Huffman Coding algorithm for generating
+provably optimal encoding trees that define a prefix coding scheme for
+a given piece of text. With this coding tree, we can encode pieces of text
+into their corresponding binary sequences and also decode binary sequences
+back into their textual form.
+
+As a refresher, the Huffman Coding algorithm to generate a coding tree from 
+a given piece of text is as follow:
+* Build a frequency table that tallies the number of times each character appears in 
+the text.
+* Initialize an empty priority queue that will hold partial trees.
+* Create one leaf node per distinct character in the input string. Add each new leaf 
+node to the priority queue. The weight of that leaf is the frequency of the character.
+* While there are two or more trees in the priority queue:
+    * Dequeue the two trees with the smallest weight from the priority queue. 
+    * Combine them together to form a new tree whose weight is the sum of the
+      weights of the two trees.
+    * Add that tree back to the priority queue.
+
+Your task in this exercise will be to trace through this algorithm to generate
+the coding tree for a given piece of input text.
+
+INSTRUCTIONS:
+1. Follow the steps of the Huffman algorithm to generate an optimal coding tree
+for the input text "MEMES!". Feel free to use the Zoom whiteboard function to draw
+things out, or use the space below to make note of your tracing process. You can
+alse make use of this online ASCII art tool: http://asciiflow.com/
+
+Frequency table
+|-----------------|
+|char     | count |
+|-----------------|
+|   M     |   2   |
+|   E     |   2   |
+|   S     |   1   |
+|   !     |   1   |
+|---------|-------|
+
+Priority Queue
+
+{ {!, 1}, {S, 1}, {M, 2}, {E, 2}}
+
+Final Huffman Tree
+
+
+2. Is this the only possible optimal Huffman coding tree that exists for the string
+"MEMES!"? Why or why not?
+
+3. (time-permitting) What is the binary encoding or the string "MEMES!" using the coding tree that you
+just built?
