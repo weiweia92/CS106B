@@ -53,6 +53,12 @@ void postorderPrintTree(TreeNode* tree) {
 
 void freeTree(TreeNode* tree) {
     /* FILL ME IN */
+    if (tree == nullptr) {
+        return;
+    }
+    freeTree(tree->left);
+    freeTree(tree->right);
+    delete tree;
 }
 
 /*

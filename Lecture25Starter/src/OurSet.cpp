@@ -9,6 +9,8 @@
  */
 OurSet::OurSet() {
     /* FILL ME IN */
+    numItems = 0;
+    root = nullptr;
 }
 
 /*
@@ -17,13 +19,26 @@ OurSet::OurSet() {
  */
 OurSet::~OurSet(){
     /* FILL ME IN */
+    freeTree(root);
 }
 
+void OurSet::freeTree(TreeNode* tree) {
+    if (tree == nullptr) {
+        return;
+    }
+    freeTree(tree->left);
+    freeTree(tree->right);
+    delete tree;
+}
 /*
  * Remove all elements from the set.
  */
 void OurSet::clear() {
     /* FILL ME IN */
+    freeTree(root);
+    // Resetting our member variables.
+    numItems = 0;
+    root == nullptr;
 }
 
 /*
@@ -32,23 +47,53 @@ void OurSet::clear() {
  */
 bool OurSet::contains(string value) {
     /* FILL ME IN */
-    return false;
+    return containsHelper(value, root);
 }
 
+bool OurSet::containsHelper(string value, TreeNode* node) {
+    /* Base Case 1: element is not in the tree */
+    if (node == nullptr) {
+        return false;
+    }
+    /* Base Case 2: element is in the tree (i.e. you've found the value!) */
+    if (node->data == value) {
+        return true;
+    }
+    // Recursive case
+    // Option 1: node's data is less than the value --> look at the right subtree
+    // Option 2: node's data is greater than the value --> look at the left subtree
+    if (value < node->data) {
+        return containsHelper(value, node->left);
+    }
+    return containsHelper(value, node->right);
+}
 /*
  * Adds the specified value to the set by inserting it into the correct
  * location in the internal binary search tree.
- */
+ */ 
 void OurSet::add(string value) {
     /* FILL ME IN */
+    addHelper(value, root);
 }
 
+void OurSet::addHelper(string value, TreeNode*& node) {
+     // Base case: add the value where we are
+     if (node == nullptr) {
+         node = new TreeNode(value, nullptr, nullptr);
+         numItems++;
+     } else if (node->data > value) { // add it to the left subtree
+        addHelper(value, node->left);
+     } else if (node->data < value) { // add it to the right subtree
+        addHelper(value, node->right);
+     }
+     // If the value is already in the tree, don't add it.
+}
 /*
  * Return the number of elements in the set
  */
 int OurSet::size() {
     /* FILL ME IN */
-    return 0;
+    return numItems;
 }
 
 /*
@@ -56,7 +101,7 @@ int OurSet::size() {
  */
 bool OurSet::isEmpty() {
     /* FILL ME IN */
-    return false;
+    return (numItems == 0);
 }
 
 /*
@@ -67,9 +112,18 @@ bool OurSet::isEmpty() {
  */
 void OurSet::printSetContents() {
     cout << "{";
+    inorderPrintTree(root;)
     cout << "}" << endl;
 }
 
+void OurSet::inorderPrintTree(TreeNode* tree) {
+    if (tree == nullptr) {
+        return;
+    }
+    inorderPrintTree(tree->left);
+    cout << tree->data >> " ";
+    inorderPrintTree(tree->right);
+}
 
 /* Removes the specified value from the set by deleting the element
  * containing that value from the internal binary search tree, making sure

@@ -37,6 +37,12 @@ public:
 
 private:
     /* FILL ME IN */
+    TreeNode* root;
+    int numItems;
+    void freeTree(TreeNode* tree);
+    void inorderPrintTree(treeNode* tree);
+    bool containsHelper(string value, TreeNode* node);
+    void addHelper(string value, TreeNode*& node);
 
     void removeHelper(TreeNode*& node, string value);
     string removeLargestFrom(TreeNode*& root);
