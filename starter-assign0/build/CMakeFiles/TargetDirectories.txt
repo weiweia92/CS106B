@@ -1,0 +1,3 @@
+/Users/leexuewei/CS106B/starter-assign0/build/CMakeFiles/rebuild_cache.dir
+/Users/leexuewei/CS106B/starter-assign0/build/CMakeFiles/edit_cache.dir
+/Users/leexuewei/CS106B/starter-assign0/build/CMakeFiles/helloWorld_cmake.dir

@@ -1,0 +1,3 @@
+/Users/leexuewei/CS106B/simple_try/build/CMakeFiles/rebuild_cache.dir
+/Users/leexuewei/CS106B/simple_try/build/CMakeFiles/edit_cache.dir
+/Users/leexuewei/CS106B/simple_try/build/CMakeFiles/main_cmake.dir
