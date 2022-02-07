@@ -12,7 +12,6 @@ void uniqueWordProgram();
 void generateUniqueWords(Set<string>& uniqueWords, const Vector<string>& lines);
 void generateWordCounts(Map<string, int>& wordCounts, const Vector<string>& lines);
 
-
 int main() {
     uniqueWordProgram();
     cout << "All done!" << endl;

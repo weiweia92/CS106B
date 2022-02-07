@@ -112,7 +112,7 @@ string encodeLetters(string s)
 string CoalAdjDupDig(string s)
 {
     string result = "";
-    if(s.size() == 0)
+    if (s.size() == 0)
         return result;
     char flag = s[0];
     result += flag;
@@ -132,9 +132,10 @@ string CoalAdjDupDig(string s)
  */
 string replaceFirDig(string digi, string origin)
 {
-    if (digi.size() == 0 || origin.size() == 0)
+    if (digi.size() == 0 || origin.size() == 0) {
         return "";
-    else{
+    }
+    else {
         origin = toUpperCase(origin);
         digi[0] = origin[0];
         return digi;
@@ -211,16 +212,16 @@ void soundexSearch(string filepath) {
     /* TODO: Fill in the remainder of this function. */
     do
     {
-        cout << endl << endl;
+        cout << endl << endl; //?
         string name = getLine("Enter a surname (RETURN to quit):");
-        if(name.size() == 0)
+        if (name.size() == 0)
             break;
         string result = soundex(name);
         cout << "Soundex code is " << result <<endl;
         Vector<string> resultNames;
         for(int i = 0; i < databaseNames.size(); i++)
         {
-            if(result == soundex(databaseNames[i]))
+            if (result == soundex(databaseNames[i]))
                 resultNames.add(databaseNames[i]);
         }
         resultNames.sort();

@@ -55,13 +55,14 @@ void findPerfects(long stop) {
 long smarterSum(long n) {
     /* TODO: Fill in this function. */
     long total = 0;
-    if(n == 1)
+    if (n == 1) {
         return 0;
+    }
     long stop = sqrt(n) + 1;
     for (long divisor = 1; divisor < stop; divisor++) {
         if (n % divisor == 0) {
             total += divisor;
-            if(divisor != 1 && divisor != n / divisor)
+            if (divisor != 1 && divisor != n / divisor)
             {
                 total += n / divisor;
             }
@@ -103,14 +104,15 @@ bool isPrime(long n)
 
 long findNthPerfectEuclid(long n) {
     /* TODO: Fill in this function. */
-    if(n <= 0)
+    if (n <= 0) {
         return 0;
+    }
     long k = 2;
     int nofPerfectNum = 0;
     do {
-        if( isPrime(pow(2,k) - 1) )
+        if ( isPrime(pow(2,k) - 1) )
         {
-            if( ++nofPerfectNum == n)
+            if ( ++nofPerfectNum == n)
             {
                 cout << "Found " << n <<"th perfect number: " << (pow(2, k) -  1) * (pow(2,k - 1)) << endl;
                 return (pow(2, k) -  1) * (pow(2,k - 1));
